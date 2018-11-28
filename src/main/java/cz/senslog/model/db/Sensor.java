@@ -3,7 +3,6 @@ package cz.senslog.model.db;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.bson.types.BSONTimestamp;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -11,19 +10,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @NoArgsConstructor
-@Document(collection = "observation")
+@Document(collection = "sensor")
 @CompoundIndexes({
-    @CompoundIndex(name = "by_sensor_idx", def = "{'sensor': 1, 'timestamp': 1}")
+    @CompoundIndex(name = "unit_group_idx", def = "{'unitGroup': 1}"),
+	@CompoundIndex(name = "unit_idx", def = "{'unit': 1}")
 })
-public class Observation {
+public class Sensor {
 
     @Id
     private String uid;
-	
-	private BSONTimestamp timestamp;
 
-	private String value;
+    private String description;
 
-	@DBRef
-    private Sensor sensor;
+    @DBRef
+	private Phenomenon phenomenon;
+
+    @DBRef
+	private UnitGroup unitGroup;
+
+    @DBRef
+	private Unit unit;
 }
