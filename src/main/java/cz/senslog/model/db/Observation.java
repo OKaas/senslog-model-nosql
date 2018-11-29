@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Document(collection = "observation")
 @CompoundIndexes({
-    @CompoundIndex(name = "by_sensor_idx", def = "{'sensor': 1, 'timestamp': 1}")
+    @CompoundIndex(name = "observation_sensor_idx", def = "{'sensor': 1, 'timestamp': 1}")
 })
 public class Observation {
 

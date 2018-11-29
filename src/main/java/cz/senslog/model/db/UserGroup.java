@@ -13,7 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Document(collection = "user_group")
 @CompoundIndexes({
-    @CompoundIndex(name = "user_unit_group_idx", def = "{'users': 1, 'priviledges.unitGroup': 1}")
+    @CompoundIndex(name = "user_group_users_idx", def = "{'users': 1}"),
+    @CompoundIndex(name = "user_unit_group_idx", def = "{'privileges.unitGroup': 1}")
 })
 public class UserGroup {
 
@@ -27,5 +28,5 @@ public class UserGroup {
     @DBRef
 	private List<User> users;
 
-    private List<Privilege> priviledges;
+    private List<Privilege> privileges;
 }
