@@ -1,17 +1,20 @@
 package cz.senslog.model.dto.create;
 
-import org.bson.types.BSONTimestamp;
-
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
 public class ObservationCreate {
-	private BSONTimestamp timestamp;
+
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+	private Date timestamp;
 
 	private String value;
 
-    private String sensorId;
+    private ObjectId sensorId;
 }
