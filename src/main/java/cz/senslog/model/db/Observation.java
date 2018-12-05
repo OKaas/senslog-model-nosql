@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Document(collection = "observation")
 @CompoundIndexes({
-        @CompoundIndex(name = "observation_sensor_idx", def = "{'sensor': 1, 'timestamp': 1}")
+        @CompoundIndex(name = "observation_sensor_idx", def = "{'sensorId': 1, 'timestamp': 1}")
 })
 public class Observation {
 

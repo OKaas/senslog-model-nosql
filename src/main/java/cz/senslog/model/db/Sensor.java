@@ -12,8 +12,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Document(collection = "sensor")
 @CompoundIndexes({
-        @CompoundIndex(name = "sensor_unit_group_idx", def = "{'unitGroup': 1}"),
-        @CompoundIndex(name = "sensor_unit_idx", def = "{'unit': 1}")
+        @CompoundIndex(name = "sensor_unit_group_idx", def = "{'unitGroupId': 1}"),
+        @CompoundIndex(name = "sensor_unit_idx", def = "{'unitId': 1}")
 })
 public class Sensor {
 

@@ -8,14 +8,15 @@ import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Document(collection = "user_group")
 @CompoundIndexes({
-        @CompoundIndex(name = "user_group_users_idx", def = "{'users': 1}"),
-        @CompoundIndex(name = "user_unit_group_idx", def = "{'privileges.unitGroup': 1}")
+        @CompoundIndex(name = "user_group_users_idx", def = "{'usersIds': 1}"),
+        @CompoundIndex(name = "user_unit_group_idx", def = "{'privileges.unitGroupId': 1}")
 })
 public class UserGroup {
 
@@ -26,7 +27,5 @@ public class UserGroup {
 
     private String description;
 
-    private List<ObjectId> usersIds;
-
-    private List<Privilege> privileges;
+    private List<ObjectId> usersIds = new ArrayList<>();
 }

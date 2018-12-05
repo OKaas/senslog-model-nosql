@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,5 +22,5 @@ public class UnitGroup {
     @Id
     private ObjectId uid;
     private String description;
-    private List<Unit> units;
+    private List<Unit> units = new ArrayList<>();
 }
