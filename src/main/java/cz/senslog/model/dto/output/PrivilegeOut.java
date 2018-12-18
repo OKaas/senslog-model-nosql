@@ -14,5 +14,5 @@ public class PrivilegeOut {
 
 	private String unitGroupId;
 
-	private PrivilegeBitSet privileges;
+	private String privileges;
 }

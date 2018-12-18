@@ -18,14 +18,24 @@ public class PrivilegeBitSet extends BitSet{
         this();
 
         if(stringBits.length() != PRIVILEGE_BITS) {
-            LOGGER.warn("Privilege \'{}\' does not fit requested privilege length \'{}\'", stringBits, PRIVILEGE_BITS);
-            return;
-        }
+        LOGGER.warn("Privilege \'{}\' does not fit requested privilege length \'{}\'", stringBits, PRIVILEGE_BITS);
+        return;
+    }
 
         for (int i = 0; i < PRIVILEGE_BITS; i++) {
-            if(stringBits.charAt(i) == '1') {
-                this.set(i);
-            }
+        if(stringBits.charAt(i) == '1') {
+            this.set(i);
         }
+    }
+}
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < PRIVILEGE_BITS; i++) {
+            sb.append(this.get(i)?1:0);
+        }
+
+        return sb.toString();
     }
 }

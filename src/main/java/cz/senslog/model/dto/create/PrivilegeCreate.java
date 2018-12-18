@@ -13,5 +13,5 @@ public class PrivilegeCreate {
 
 	private ObjectId unitGroupId;
 
-	private PrivilegeBitSet privileges;
+	private String privileges;
 }
