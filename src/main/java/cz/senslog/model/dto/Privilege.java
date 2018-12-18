@@ -1,10 +1,9 @@
 package cz.senslog.model.dto;
 
+import cz.senslog.model.util.PrivilegeBitSet;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-
-import java.util.BitSet;
 
 @Data
 @NoArgsConstructor
@@ -16,5 +15,5 @@ public class Privilege {
 
 	private ObjectId unitGroupId;
 
-	private BitSet privileges;
+	private PrivilegeBitSet privileges;
 }

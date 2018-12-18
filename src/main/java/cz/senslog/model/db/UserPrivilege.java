@@ -1,5 +1,6 @@
 package cz.senslog.model.db;
 
+import cz.senslog.model.util.PrivilegeBitSet;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
@@ -24,5 +25,5 @@ public class UserPrivilege {
 
     private List<ObjectId> privilegesIds = new ArrayList<>();
 
-    private BitSet privileges;
+    private PrivilegeBitSet privileges;
 }
